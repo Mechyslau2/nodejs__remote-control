@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "outDir": "./back-end/dist",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ES5",
+    "baseUrl": "./back-end",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": true,
+    "ignore": ["(?:^|/)node_modules/"]
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}
