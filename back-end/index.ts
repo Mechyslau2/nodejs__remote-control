@@ -20,7 +20,8 @@ wss.on("connection", (ws) => {
   stream.on("data", async (data) => {
     let response = Buffer.from(data).toString();
     const [command, ...size] = response.split(" ");
-    const result = await controller(command, Number(size));
+    const sizes = size.map(item => Number(item));
+    const result = await controller(command, sizes);
 
     result ? ws.send(`${response} ${result}\0`) : ws.send(`${response}\0`);
   });
