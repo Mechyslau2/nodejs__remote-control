@@ -1,5 +1,5 @@
 import robot from "robotjs";
-import { drawRectangle, drawSquare, drawCircle } from "../commands/index.js";
+import { drawRectangle, drawSquare, drawCircle, getScreenshot } from "../commands/index.js";
 import { Commands, controllerResult } from "./controller.types.js";
 
 const COMMANDS = <Commands>{
@@ -22,6 +22,7 @@ const COMMANDS = <Commands>{
   draw_square: (size) => drawSquare(size),
   draw_rectangle: (sizes) => drawRectangle(sizes),
   draw_circle: ([radius]) => drawCircle(radius),
+  prnt_scrn: () => getScreenshot(),
 };
 
 const commandsArray = Object.keys(COMMANDS);

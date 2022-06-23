@@ -1,8 +1,6 @@
-import Jimp from "jimp";
 import { httpServer } from "./src/http_server/index.js";
 
 import { WebSocketServer, createWebSocketStream } from "ws";
-import robot from "robotjs";
 
 import { controller } from "./src/controller/controller.js";
 
@@ -20,7 +18,7 @@ wss.on("connection", (ws) => {
   stream.on("data", async (data) => {
     let response = Buffer.from(data).toString();
     const [command, ...size] = response.split(" ");
-    const sizes = size.map(item => Number(item));
+    const sizes = size.map((item) => Number(item));
     const result = await controller(command, sizes);
 
     result ? ws.send(`${response} ${result}\0`) : ws.send(`${response}\0`);

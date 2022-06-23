@@ -14,6 +14,7 @@ export interface Commands {
     'draw_square': (size: number[]) => Promise<void>;
     'draw_rectangle': (size: number[]) => Promise<void>;
     'draw_circle': (size: number[]) => Promise<void>;
+    'prnt_scrn': () => Promise<void>;
 }
 
 export type controllerResult = void | string;
