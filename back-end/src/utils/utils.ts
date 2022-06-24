@@ -12,17 +12,19 @@ export const drawLine = async (positions: Pos, step = 1): Promise<void> => {
   endY = endY ? y + endY : y;
   endX = endX ? x + endX : x;
 
+  robot.mouseToggle("down");
+
   if (x !== endX) {
     while (x !== endX) {
       x += x > endX ? -step : step;
-     // robot.mouseClick();
       robot.moveMouse(x, y);
     }
   } else {
     while (y !== endY) {
       y += y > endY ? -step : step;
-     // robot.mouseClick();
       robot.moveMouse(x, y);
     }
   }
+
+  robot.mouseToggle("up");
 };
